@@ -6,3 +6,8 @@
 * 1번 - [[PCCE 기출문제] 9번 / 이웃한 칸](https://school.programmers.co.kr/learn/courses/30/lessons/250125), Lv. 1
 * 2번 - [[PCCE 기출문제] 10번 / 데이터 분석](https://school.programmers.co.kr/learn/courses/30/lessons/250121), Lv. 1
 * 3번 - [폰켓몬](https://school.programmers.co.kr/learn/courses/30/lessons/1845), Lv. 1
+
+## 2025-01-04
+* 1번 - [완주하지 못한 선수](https://school.programmers.co.kr/learn/courses/30/lessons/42576), Lv. 1
+* 2번 - [전화번호 목록](https://school.programmers.co.kr/learn/courses/30/lessons/42577), Lv. 2
+* 3번 - [의상](https://school.programmers.co.kr/learn/courses/30/lessons/42578), Lv. 2
