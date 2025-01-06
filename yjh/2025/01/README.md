@@ -14,3 +14,7 @@
 ## 2025-01-05
 * 1번 - [의상](https://school.programmers.co.kr/learn/courses/30/lessons/42578), Lv. 2
 * 2번 - [베스트앨범](https://school.programmers.co.kr/learn/courses/30/lessons/42579), Lv. 3
+
+## 2025-01-06
+* 1번 - [같은 숫자는 싫어](https://school.programmers.co.kr/learn/courses/30/lessons/12906), Lv. 1
+* 2번 - [기능개발](https://school.programmers.co.kr/learn/courses/30/lessons/42586), Lv. 2
