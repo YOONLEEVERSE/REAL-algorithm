@@ -18,3 +18,7 @@
 ## 2025-01-06
 * 1번 - [같은 숫자는 싫어](https://school.programmers.co.kr/learn/courses/30/lessons/12906), Lv. 1
 * 2번 - [기능개발](https://school.programmers.co.kr/learn/courses/30/lessons/42586), Lv. 2
+
+## 2025-01-08
+* 1번 - [교점에 별 만들기](https://school.programmers.co.kr/learn/courses/30/lessons/87377), Lv. 2
+* 
