@@ -29,3 +29,6 @@
 ## 2025-01-18
 * 1번 - [거리두기 확인하기](https://school.programmers.co.kr/learn/courses/30/lessons/81302), Lv. 2
 * 2번 - [행렬의 곱셈](https://school.programmers.co.kr/learn/courses/30/lessons/12949), Lv. 2
+* 3번 - [시저 암호](https://school.programmers.co.kr/learn/courses/30/lessons/12926), Lv. 1
+* 4번 - [이상한 문자 만들기](https://school.programmers.co.kr/learn/courses/30/lessons/12930), Lv. 1
+* 5번 - [튜플](https://school.programmers.co.kr/learn/courses/30/lessons/64065), Lv. 2
