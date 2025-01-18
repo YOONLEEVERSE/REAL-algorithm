@@ -25,3 +25,7 @@
 ## 2025-01-09
 * 1번 - [행렬 테두리 회전하기](https://school.programmers.co.kr/learn/courses/30/lessons/77485), Lv. 2
 * 2번 - [삼각 달팽이](https://school.programmers.co.kr/learn/courses/30/lessons/68645), Lv. 2
+
+## 2025-01-18
+* 1번 - [거리두기 확인하기](https://school.programmers.co.kr/learn/courses/30/lessons/81302), Lv. 2
+* 2번 - [행렬의 곱셈](https://school.programmers.co.kr/learn/courses/30/lessons/12949), Lv. 2
