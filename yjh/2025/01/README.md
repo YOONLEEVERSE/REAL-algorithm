@@ -34,6 +34,12 @@
 * 5번 - [튜플](https://school.programmers.co.kr/learn/courses/30/lessons/64065), Lv. 2
 
 ## 2025-01-20
+* 1번 - [짝지어 제거하기](https://school.programmers.co.kr/learn/courses/30/lessons/12973), Lv. 2
+* 1번 - [문자열 압축](https://school.programmers.co.kr/learn/courses/30/lessons/60057), Lv. 2
 
-
-
+## 2025-01-21
+* 1번 - [3진법 뒤집기](https://school.programmers.co.kr/learn/courses/30/lessons/68935), Lv. 1
+* 2번 - [이진 변환 반복하기](https://school.programmers.co.kr/learn/courses/30/lessons/70129), Lv. 2
+* 3번 - [신규 아이디 추천](https://school.programmers.co.kr/learn/courses/30/lessons/72410), Lv. 1
+* 4번 - [문자열 다루기 기본](https://school.programmers.co.kr/learn/courses/30/lessons/12918), Lv. 1
+* 5번 - [핸드폰 번호 가리기](https://school.programmers.co.kr/learn/courses/30/lessons/12948), Lv. 1
