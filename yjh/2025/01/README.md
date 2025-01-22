@@ -43,3 +43,7 @@
 * 3번 - [신규 아이디 추천](https://school.programmers.co.kr/learn/courses/30/lessons/72410), Lv. 1
 * 4번 - [문자열 다루기 기본](https://school.programmers.co.kr/learn/courses/30/lessons/12918), Lv. 1
 * 5번 - [핸드폰 번호 가리기](https://school.programmers.co.kr/learn/courses/30/lessons/12948), Lv. 1
+
+## 2025-01-22
+* 1번 - [콜라츠 추측](https://school.programmers.co.kr/learn/courses/30/lessons/12943), Lv. 1
+* 2번 - [하노이의 탑](https://school.programmers.co.kr/learn/courses/30/lessons/12946), Lv. 3
