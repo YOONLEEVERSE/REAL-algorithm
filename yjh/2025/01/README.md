@@ -47,3 +47,9 @@
 ## 2025-01-22
 * 1번 - [콜라츠 추측](https://school.programmers.co.kr/learn/courses/30/lessons/12943), Lv. 1
 * 2번 - [하노이의 탑](https://school.programmers.co.kr/learn/courses/30/lessons/12946), Lv. 3
+
+## 2025-01-24
+* 1번 - [모음사전](https://school.programmers.co.kr/learn/courses/30/lessons/84512), Lv. 2
+* 2번 - [호텔 방 배정](https://school.programmers.co.kr/learn/courses/30/lessons/64063), Lv. 4
+
+## 
