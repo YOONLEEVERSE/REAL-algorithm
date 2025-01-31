@@ -52,4 +52,9 @@
 * 1번 - [모음사전](https://school.programmers.co.kr/learn/courses/30/lessons/84512), Lv. 2
 * 2번 - [호텔 방 배정](https://school.programmers.co.kr/learn/courses/30/lessons/64063), Lv. 4
 
-## 
+## 2025-01-31
+* 1번 - [모의고사](https://school.programmers.co.kr/learn/courses/30/lessons/42840), Lv. 1
+* 2번 - [카펫](https://school.programmers.co.kr/learn/courses/30/lessons/42842), Lv. 2
+* 3번 - [소수 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/42839), Lv. 2
+* 4번 - [불량 사용자](https://school.programmers.co.kr/learn/courses/30/lessons/64064), Lv. 3
+* 5번 - [수식 최대화](https://school.programmers.co.kr/learn/courses/30/lessons/67257), Lv. 2
