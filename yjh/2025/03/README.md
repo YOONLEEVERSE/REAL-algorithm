@@ -17,3 +17,9 @@
 * 4번 - [멀리 뛰기](https://school.programmers.co.kr/learn/courses/30/lessons/12914), Lv. 2
 * 5번 - [귤 고르기](https://school.programmers.co.kr/learn/courses/30/lessons/138476), Lv. 2
 * 6번 - [괄호 회전하기](https://school.programmers.co.kr/learn/courses/30/lessons/76502), Lv. 2
+
+## 2025-03-13
+* 1번 - [연속 부분 수열 합의 개수](https://school.programmers.co.kr/learn/courses/30/lessons/131701), Lv. 2
+* 2번 - [n^2 배열 자르기](https://school.programmers.co.kr/learn/courses/30/lessons/87390), Lv. 2
+* 3번 - [할인 행사](https://school.programmers.co.kr/learn/courses/30/lessons/131127), Lv. 2
+* 3번 - [마법의 엘리베이터](https://school.programmers.co.kr/learn/courses/30/lessons/148653), Lv. 2
