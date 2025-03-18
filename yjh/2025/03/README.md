@@ -23,3 +23,10 @@
 * 2번 - [n^2 배열 자르기](https://school.programmers.co.kr/learn/courses/30/lessons/87390), Lv. 2
 * 3번 - [할인 행사](https://school.programmers.co.kr/learn/courses/30/lessons/131127), Lv. 2
 * 3번 - [마법의 엘리베이터](https://school.programmers.co.kr/learn/courses/30/lessons/148653), Lv. 2
+
+## 2025-03-17
+* 1번 - [프로세스](https://school.programmers.co.kr/learn/courses/30/lessons/42587), Lv. 2
+* 2번 - [피로도](https://school.programmers.co.kr/learn/courses/30/lessons/87946), Lv. 2
+* 3번 - [타겟 넘버](https://school.programmers.co.kr/learn/courses/30/lessons/43165), Lv. 2
+* 4번 - [k진수에서 소수 개수 구하기](https://school.programmers.co.kr/learn/courses/30/lessons/92335), Lv. 2
+* 
