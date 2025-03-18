@@ -29,4 +29,9 @@
 * 2번 - [피로도](https://school.programmers.co.kr/learn/courses/30/lessons/87946), Lv. 2
 * 3번 - [타겟 넘버](https://school.programmers.co.kr/learn/courses/30/lessons/43165), Lv. 2
 * 4번 - [k진수에서 소수 개수 구하기](https://school.programmers.co.kr/learn/courses/30/lessons/92335), Lv. 2
-* 
+
+## 2025-03-18
+* 1번 - [주차 요금 계산](https://school.programmers.co.kr/learn/courses/30/lessons/92341), Lv. 2
+* 2번 - [뒤에 있는 큰 수 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/154539), Lv. 2
+* 3번 - [롤케이크 자르기](https://school.programmers.co.kr/learn/courses/30/lessons/132265), Lv. 2
+* 4번 - [숫자 변환하기](https://school.programmers.co.kr/learn/courses/30/lessons/154538), Lv. 2
