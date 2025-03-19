@@ -35,3 +35,7 @@
 * 2번 - [뒤에 있는 큰 수 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/154539), Lv. 2
 * 3번 - [롤케이크 자르기](https://school.programmers.co.kr/learn/courses/30/lessons/132265), Lv. 2
 * 4번 - [숫자 변환하기](https://school.programmers.co.kr/learn/courses/30/lessons/154538), Lv. 2
+
+## 2025-03-19
+* 1번 - [2개 이하로 다른 비트](https://school.programmers.co.kr/learn/courses/30/lessons/77885), Lv. 2
+* 2번 - [다리를 지나는 트럭](https://school.programmers.co.kr/learn/courses/30/lessons/42583), Lv. 2
