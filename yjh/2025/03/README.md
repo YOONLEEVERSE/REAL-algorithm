@@ -39,3 +39,9 @@
 ## 2025-03-19
 * 1번 - [2개 이하로 다른 비트](https://school.programmers.co.kr/learn/courses/30/lessons/77885), Lv. 2
 * 2번 - [다리를 지나는 트럭](https://school.programmers.co.kr/learn/courses/30/lessons/42583), Lv. 2
+
+## 2025-03-20
+* 1번 - [쿼드압축 후 개수 세기](https://school.programmers.co.kr/learn/courses/30/lessons/68936), Lv. 2
+* 2번 - [택배상자](https://school.programmers.co.kr/learn/courses/30/lessons/131704), Lv. 2
+* 3번 - [큰 수 만들기](https://school.programmers.co.kr/learn/courses/30/lessons/42883), Lv. 2
+* 4번 - [호텔 대실](https://school.programmers.co.kr/learn/courses/30/lessons/155651), Lv. 2
