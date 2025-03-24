@@ -45,3 +45,7 @@
 * 2번 - [택배상자](https://school.programmers.co.kr/learn/courses/30/lessons/131704), Lv. 2
 * 3번 - [큰 수 만들기](https://school.programmers.co.kr/learn/courses/30/lessons/42883), Lv. 2
 * 4번 - [호텔 대실](https://school.programmers.co.kr/learn/courses/30/lessons/155651), Lv. 2
+
+## 2025-03-24
+* 1번 - [연속된 부분 수열의 합](https://school.programmers.co.kr/learn/courses/30/lessons/178870), Lv. 2
+* 2번 - [두 큐 합 같게 만들기](https://school.programmers.co.kr/learn/courses/30/lessons/118667), Lv. 2
