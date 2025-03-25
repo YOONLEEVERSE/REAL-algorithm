@@ -49,3 +49,7 @@
 ## 2025-03-24
 * 1번 - [연속된 부분 수열의 합](https://school.programmers.co.kr/learn/courses/30/lessons/178870), Lv. 2
 * 2번 - [두 큐 합 같게 만들기](https://school.programmers.co.kr/learn/courses/30/lessons/118667), Lv. 2
+
+## 2025-03-25
+* 1번 - [무인도 여행](https://school.programmers.co.kr/learn/courses/30/lessons/154540), Lv. 2
+* 2번 - [전력망을 둘로 나누기](https://school.programmers.co.kr/learn/courses/30/lessons/86971), Lv. 2
