@@ -53,3 +53,7 @@
 ## 2025-03-25
 * 1번 - [무인도 여행](https://school.programmers.co.kr/learn/courses/30/lessons/154540), Lv. 2
 * 2번 - [전력망을 둘로 나누기](https://school.programmers.co.kr/learn/courses/30/lessons/86971), Lv. 2
+
+## 2025-03-26
+* 1번 - [배달](https://school.programmers.co.kr/learn/courses/30/lessons/12978?language=python3), Lv. 2
+* 2번 - [점 찍기](https://school.programmers.co.kr/learn/courses/30/lessons/140107), Lv. 2
