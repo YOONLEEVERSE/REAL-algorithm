@@ -57,3 +57,7 @@
 ## 2025-03-26
 * 1번 - [배달](https://school.programmers.co.kr/learn/courses/30/lessons/12978?language=python3), Lv. 2
 * 2번 - [점 찍기](https://school.programmers.co.kr/learn/courses/30/lessons/140107), Lv. 2
+
+## 2025-03-27
+* 1번 - [숫자 카드 나누기](https://school.programmers.co.kr/learn/courses/30/lessons/135807), Lv. 2
+* 2번 - [멀쩡한 사각형](https://school.programmers.co.kr/learn/courses/30/lessons/62048), Lv. 2
