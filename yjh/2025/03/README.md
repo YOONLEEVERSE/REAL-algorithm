@@ -61,3 +61,7 @@
 ## 2025-03-27
 * 1번 - [숫자 카드 나누기](https://school.programmers.co.kr/learn/courses/30/lessons/135807), Lv. 2
 * 2번 - [멀쩡한 사각형](https://school.programmers.co.kr/learn/courses/30/lessons/62048), Lv. 2
+
+## 2025-03-28
+* 1번 - [시소 짝궁](https://school.programmers.co.kr/learn/courses/30/lessons/152996), Lv. 2
+* 2번 - [테이블 해시 함수](https://school.programmers.co.kr/learn/courses/30/lessons/147354), Lv. 2
