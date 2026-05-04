@@ -1,0 +1,15 @@
+{
+  "name": "algo-log",
+  "version": "1.0.0",
+  "description": "알고리즘 문제 풀이 기록 반자동화 TUI 도구",
+  "license": "ISC",
+  "author": "bebusl",
+  "type": "module",
+  "bin": {
+    "algo": "./index.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.9.0",
+    "prompts": "^2.4.2"
+  }
+}
