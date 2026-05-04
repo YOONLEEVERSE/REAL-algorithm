@@ -35,3 +35,4 @@ function solution(numbers) {
 
   return answer;
 }
+// 다른 풀이로도 풀어볼 것. 효율이 좋지 않음. 체크 안해도 될 부분까지 많이 체크하고 있어서..
