@@ -35,5 +35,14 @@ export const newPrompt = async (config) => {
     `// 시작 시간 : ${getFormattedTime(new Date())}`,
   );
 
-  console.log(`파일이 성공적으로 생성되었습니다! (${fileName})`);
+  if (responses.inputfile) {
+    const inputFileName = `${baseName}_input`;
+    await fs.writeFile(
+      getAbsolutePath("..", "..", config.baseDir, inputFileName),
+      "",
+    );
+    console.log(`파일이 성공적으로 생성되었습니다! (${fileName}, ${inputFileName})`);
+  } else {
+    console.log(`파일이 성공적으로 생성되었습니다! (${fileName})`);
+  }
 };

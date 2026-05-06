@@ -10,7 +10,7 @@ import {
 export const PLATFORM_CHOICES = Object.entries(PLATFORM_KR).map(
   ([key, value]) => ({
     title: value,
-    value: PLATFORM[key],
+    value: key,
   }),
 );
 
@@ -34,7 +34,9 @@ export const questions = {
     name: "platform",
     message: "문제 플랫폼을 골라주세요",
     choices: PLATFORM_CHOICES,
-    initial: PLATFORM_CHOICES.findIndex(initialValue),
+    initial: PLATFORM_CHOICES.findIndex(
+      (choice) => choice.value === initialValue,
+    ),
   }),
   NUMBER: (initialValue) => ({
     type: "number",
@@ -68,7 +70,10 @@ export const questions = {
     name: "language",
     message: "언어를 선택해주세요",
     choices: LANGUAGE_CHOICES,
-    initial: Math.max(0, LANGUAGE_CHOICES.findIndex((c) => c.value === initialValue)),
+    initial: Math.max(
+      0,
+      LANGUAGE_CHOICES.findIndex((c) => c.value === initialValue),
+    ),
   }),
   INPUTFILE: (initialValue) => ({
     type: "toggle",
@@ -96,8 +101,8 @@ export const NEW_PROMPT_QUESTION = (config) => [
 ];
 
 export const COMMIT_PROMPT_QUESTION = (config) => [
-  questions.PLATFORM,
-  questions.NUMBER,
-  questions.CATEGORY,
-  questions.IS_REVIEW,
+  questions.PLATFORM(),
+  questions.NUMBER(),
+  questions.CATEGORY(),
+  questions.IS_REVIEW(),
 ];
