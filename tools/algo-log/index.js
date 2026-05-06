@@ -1,15 +1,12 @@
 #!/usr/bin/env node
 
-import prompts from "prompts";
 import path from "path";
-
 import chalk from "chalk";
 import { newPrompt } from "./prompts/new.js";
+import { commitPrompt } from "./prompts/commit.js";
+import { initializeApp } from "./initializeApp.js";
 
-function main() {
-  const __dirname = path.dirname(new URL(import.meta.url).pathname);
-  const LOG_DB_PATH = path.resolve(__dirname, "db", "log.db");
-
+async function main() {
   const args = process.argv.slice(2);
 
   const action = args[0];
@@ -20,14 +17,16 @@ function main() {
     return;
   }
 
+  const config = await initializeApp();
+
   switch (action) {
     case "new": {
-      newPrompt();
+      newPrompt(config);
       break;
     }
 
     case "commit": {
-      console.log("COMMIT!");
+      commitPrompt(config);
       break;
     }
 

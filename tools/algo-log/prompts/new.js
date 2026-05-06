@@ -7,10 +7,10 @@ import {
 } from "../constants/index.js";
 import fs from "fs";
 import { getAbsolutePath, getFormattedTime } from "../utility.js";
-import config from "../config.json" with { type: "json" };
+import { NEW_PROMPT_QUESTION } from "./questions/problem.js";
 
-export const newPrompt = async () => {
-  const responses = await prompts(questions);
+export const newPrompt = async (config) => {
+  const responses = await prompts(NEW_PROMPT_QUESTION(config));
 
   //@TODO
   // 0.이미 제출한 적 있는지 확인 필요

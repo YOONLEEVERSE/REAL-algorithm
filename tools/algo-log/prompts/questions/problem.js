@@ -1,9 +1,14 @@
-import config from "../config.json" with { type: "json" };
+import {
+  PLATFORM,
+  PLATFORM_KR,
+  CATEGORY,
+  CATEGORY_KR,
+} from "../../constants/index.js";
 
 export const PLATFORM_CHOICES = Object.entries(PLATFORM_KR).map(
   ([key, value]) => ({
     title: value,
-    value: PLATFORM[key], //PLATFORM
+    value: PLATFORM[key],
   }),
 );
 
@@ -15,16 +20,13 @@ export const CATEGORY_CHOICES = Object.entries(CATEGORY_KR).map(
 );
 
 export const questions = {
-  PLATFORM:
-    // 플랫폼
-    (initialValue) => ({
-      type: "select",
-      name: "platform",
-      message: "문제 플랫폼을 골라주세요",
-      choices: PLATFORM_CHOICES,
-      initial: PLATFORM_CHOICES.findIndex(initialValue),
-    }),
-  // 문제번호
+  PLATFORM: (initialValue) => ({
+    type: "select",
+    name: "platform",
+    message: "문제 플랫폼을 골라주세요",
+    choices: PLATFORM_CHOICES,
+    initial: PLATFORM_CHOICES.findIndex(initialValue),
+  }),
   NUMBER: (initialValue) => ({
     type: "number",
     name: "number",
@@ -37,15 +39,12 @@ export const questions = {
       return true;
     },
   }),
-  //문제이름
   NAME: (initialValue) => ({
     type: "text",
     name: "name",
     message: "문제의 이름을 입력해주세요",
     initial: initialValue,
   }),
-
-  //문제 유형
   CATEGORY: {
     type: "autocompleteMultiselect",
     name: "category",
@@ -55,8 +54,6 @@ export const questions = {
       "\n [방향키↑↓]: 방향키 이동 | [Space]: 선택/해제 | [Enter]: 완료 | [Type]: 검색",
     hint: "미입력시 '기타'로 분류됩니다.",
   },
-
-  //테스트를 위한 input파일 필요 여부
   INPUTFILE: (initialValue) => ({
     type: "toggle",
     name: "inputfile",
@@ -65,7 +62,6 @@ export const questions = {
     active: "네",
     inactive: "아니오",
   }),
-  //재풀이 여부
   IS_REVIEW: (initialValue = false) => ({
     type: "toggle",
     name: "isReview",
@@ -76,15 +72,15 @@ export const questions = {
   }),
 };
 
-export const NEW_PROMPT_QUESTION = (defaultValues = config) => [
-  questions.PLATFORM(defaultValues.defaultPlatform),
+export const NEW_PROMPT_QUESTION = (config) => [
+  questions.PLATFORM(config.defaultPlatform),
   questions.NUMBER(),
   questions.INPUTFILE(config.defaultGenerateInputfile ?? false),
 ];
 
-export const COMMIT_PROMPT_QUESTION = (defaultValues = config) => [
-  questions.PLATFORM, //파일 제목에서 읽음 -> config에서 읽음 -> 없으면 undefined
-  questions.NUMBER, // 파일 제목에서 읽음 -> 없으면 undefined
-  questions.CATEGORY, // 기본값 x
-  questions.IS_REVIEW, // 파일이름에 _2, _3붙어있으면 자동으로 true
+export const COMMIT_PROMPT_QUESTION = (config) => [
+  questions.PLATFORM,
+  questions.NUMBER,
+  questions.CATEGORY,
+  questions.IS_REVIEW,
 ];
