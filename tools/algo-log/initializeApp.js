@@ -5,7 +5,7 @@ import {
   askUsername,
   askConfigFields,
   askUseExistingUser,
-} from "./prompts/setup.js";
+} from "./commands/setup.js";
 
 const CONFIG_PATH = getAbsolutePath("config.json");
 const DB_PATH = getAbsolutePath("data", "db.json");

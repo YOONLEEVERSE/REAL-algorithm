@@ -2,8 +2,8 @@
 
 import path from "path";
 import chalk from "chalk";
-import { newPrompt } from "./prompts/new.js";
-import { commitPrompt } from "./prompts/commit.js";
+import { newPrompt } from "./commands/new.js";
+import { commitPrompt } from "./commands/commit.js";
 import { initializeApp } from "./initializeApp.js";
 
 async function main() {
