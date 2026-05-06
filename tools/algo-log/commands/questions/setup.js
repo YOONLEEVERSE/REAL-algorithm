@@ -1,11 +1,4 @@
-import { PLATFORM_CHOICES } from "./problem.js";
-
-export const LANGUAGE_CHOICES = [
-  { title: "JavaScript", value: "js" },
-  { title: "Python", value: "py" },
-  { title: "Java", value: "java" },
-  { title: "C++", value: "cpp" },
-];
+import { PLATFORM_CHOICES, LANGUAGE_CHOICES } from "./problem.js";
 
 export const setupQuestions = {
   USERNAME: {

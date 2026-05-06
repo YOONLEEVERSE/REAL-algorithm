@@ -3,6 +3,8 @@ import {
   PLATFORM_KR,
   CATEGORY,
   CATEGORY_KR,
+  LANGUAGE,
+  LANGUAGE_KR,
 } from "../../constants/index.js";
 
 export const PLATFORM_CHOICES = Object.entries(PLATFORM_KR).map(
@@ -16,6 +18,13 @@ export const CATEGORY_CHOICES = Object.entries(CATEGORY_KR).map(
   ([key, value]) => ({
     title: value,
     value: CATEGORY[key],
+  }),
+);
+
+export const LANGUAGE_CHOICES = Object.entries(LANGUAGE_KR).map(
+  ([key, value]) => ({
+    title: value,
+    value: key,
   }),
 );
 
@@ -54,6 +63,13 @@ export const questions = {
       "\n [방향키↑↓]: 방향키 이동 | [Space]: 선택/해제 | [Enter]: 완료 | [Type]: 검색",
     hint: "미입력시 '기타'로 분류됩니다.",
   },
+  LANGUAGE: (initialValue) => ({
+    type: "select",
+    name: "language",
+    message: "언어를 선택해주세요",
+    choices: LANGUAGE_CHOICES,
+    initial: Math.max(0, LANGUAGE_CHOICES.findIndex((c) => c.value === initialValue)),
+  }),
   INPUTFILE: (initialValue) => ({
     type: "toggle",
     name: "inputfile",
@@ -75,6 +91,7 @@ export const questions = {
 export const NEW_PROMPT_QUESTION = (config) => [
   questions.PLATFORM(config.defaultPlatform),
   questions.NUMBER(),
+  questions.LANGUAGE(config.language),
   questions.INPUTFILE(config.defaultGenerateInputfile ?? false),
 ];
 
