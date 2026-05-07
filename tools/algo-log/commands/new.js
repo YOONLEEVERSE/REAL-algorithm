@@ -3,6 +3,8 @@ import fs from "fs/promises";
 import { getAbsolutePath, getFormattedTime } from "../utility.js";
 import { NEW_PROMPT_QUESTION } from "./questions/problem.js";
 import { findOne, findAll } from "../db.js";
+import { LANGUAGE_LINE_COMMENT } from "../constants/languages.js";
+import { PLATFORM_ALIAS } from "../constants/platforms.js";
 
 export const newPrompt = async (config) => {
   const responses = await prompts(NEW_PROMPT_QUESTION(config));
@@ -24,15 +26,15 @@ export const newPrompt = async (config) => {
 
   const baseName =
     retryCnt > 0
-      ? `${responses.platform}_${responses.number}_${retryCnt}`
-      : `${responses.platform}_${responses.number}`;
+      ? `${PLATFORM_ALIAS[responses.platform]}_${responses.number}_${retryCnt}`
+      : `${PLATFORM_ALIAS[responses.platform]}_${responses.number}`;
 
   const fileName = `${baseName}.${responses.language}`;
 
   // @TODO: language별 템플릿 적용
   await fs.writeFile(
     getAbsolutePath("..", "..", config.baseDir, fileName),
-    `// 시작 시간 : ${getFormattedTime(new Date())}`,
+    `${LANGUAGE_LINE_COMMENT[responses.language]} 시작 시간 : ${getFormattedTime(new Date())}`,
   );
 
   if (responses.inputfile) {
@@ -41,7 +43,9 @@ export const newPrompt = async (config) => {
       getAbsolutePath("..", "..", config.baseDir, inputFileName),
       "",
     );
-    console.log(`파일이 성공적으로 생성되었습니다! (${fileName}, ${inputFileName})`);
+    console.log(
+      `파일이 성공적으로 생성되었습니다! (${fileName}, ${inputFileName})`,
+    );
   } else {
     console.log(`파일이 성공적으로 생성되었습니다! (${fileName})`);
   }
