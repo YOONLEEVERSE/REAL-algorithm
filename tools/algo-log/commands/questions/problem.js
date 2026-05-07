@@ -17,7 +17,7 @@ export const PLATFORM_CHOICES = Object.entries(PLATFORM_KR).map(
 export const CATEGORY_CHOICES = Object.entries(CATEGORY_KR).map(
   ([key, value]) => ({
     title: value,
-    value: CATEGORY[key],
+    value: key,
   }),
 );
 

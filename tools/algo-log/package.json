@@ -11,7 +11,8 @@
   "scripts": {
     "dev": "bun run index.js",
     "watch": "bun --watch index.js",
-    "build": "bun build ./index.js --compile --outfile ./algo"
+    "build": "bun build ./index.js --compile --outfile ./algo",
+    "test": "bun test"
   },
   "dependencies": {
     "chalk": "^5.6.2",
