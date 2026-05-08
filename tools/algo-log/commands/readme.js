@@ -19,23 +19,13 @@ const DIFFICULTY_KR_BY_PLATFORM = {
 export function buildReadmeContent(problems, solvedProblems) {
   const problemMap = new Map(problems.map((p) => [p.id, p]));
 
-  const byProblem = new Map();
-  const sortedSolves = [...solvedProblems].sort(
+  const sorted = [...solvedProblems].sort(
     (a, b) => new Date(a.solvedAt) - new Date(b.solvedAt),
   );
-  for (const sp of sortedSolves) {
-    if (!byProblem.has(sp.problemId)) byProblem.set(sp.problemId, []);
-    byProblem.get(sp.problemId).push(sp);
-  }
 
-  const problemEntries = [...byProblem.entries()].sort(
-    ([, a], [, b]) => new Date(a[0].solvedAt) - new Date(b[0].solvedAt),
-  );
-
-  const rows = [];
-  for (const [problemId, solves] of problemEntries) {
-    const problem = problemMap.get(problemId);
-    if (!problem) continue;
+  const rows = sorted.map((sp) => {
+    const problem = problemMap.get(sp.problemId);
+    if (!problem) return null;
 
     const platformName = PLATFORM_KR[problem.platform] ?? problem.platform;
     const diffKr = DIFFICULTY_KR_BY_PLATFORM[problem.platform];
@@ -43,28 +33,19 @@ export function buildReadmeContent(problems, solvedProblems) {
     const categories =
       (problem.category ?? []).map((c) => CATEGORY_KR[c] ?? c).join(", ") ||
       "기타";
+    const lang = sp.language ?? "-";
+    const pd = PERSONAL_DIFFICULTY_KR[sp.personalDifficulty] ?? "-";
+    const review = sp.isReview ? "✓" : "";
+    const memo = sp.memo || "-";
 
-    for (let idx = 0; idx < solves.length; idx++) {
-      const solve = solves[idx];
-      const lang = solve.language ?? "-";
-      const pd = PERSONAL_DIFFICULTY_KR[solve.personalDifficulty] ?? "-";
-      const memo = solve.memo || "-";
-
-      if (idx === 0) {
-        rows.push(
-          `| ${platformName} | ${problem.number} | ${diffLabel} | ${categories} | ${lang} | ${pd} | ${memo} |`,
-        );
-      } else {
-        rows.push(`| | | | | (${idx + 1}회차) ${lang} | ${pd} | ${memo} |`);
-      }
-    }
-  }
+    return `| ${platformName} | ${problem.number} | ${diffLabel} | ${categories} | ${lang} | ${pd} | ${review} | ${memo} |`;
+  }).filter(Boolean);
 
   const lines = [
     "# 알고리즘 풀이 기록",
     "",
-    "| 플랫폼 | 번호 | 난이도 | 유형 | 언어 | 체감 난이도 | 비고 |",
-    "| :----: | :--: | :----: | :--: | :--: | :---------: | :--: |",
+    "| 플랫폼 | 번호 | 난이도 | 유형 | 언어 | 체감 난이도 | 복습 | 비고 |",
+    "| :----: | :--: | :----: | :--: | :--: | :---------: | :--: | :--: |",
     ...rows,
   ];
 
