@@ -112,6 +112,11 @@ export const questions = {
     active: "네",
     inactive: "아니오",
   }),
+  MEMO: {
+    type: "text",
+    name: "memo",
+    message: "비고를 입력해주세요 (선택)",
+  },
   DIFFICULTY: (platform) => ({
     type: "select",
     name: "difficulty",
@@ -137,5 +142,19 @@ export const COMMIT_PROMPT_QUESTION = (platform, isReview = false) => [
   questions.DIFFICULTY(platform),
   questions.PERSONAL_DIFFICULTY,
   questions.CATEGORY,
+  questions.IS_REVIEW(isReview),
+];
+
+export const SOLVED_PROMPT_QUESTION = (isReview = false) => [
+  questions.PERSONAL_DIFFICULTY,
+  questions.MEMO,
+  questions.IS_REVIEW(isReview),
+];
+
+export const NEW_PROBLEM_PROMPT_QUESTION = (platform, isReview = false) => [
+  questions.DIFFICULTY(platform),
+  questions.PERSONAL_DIFFICULTY,
+  questions.CATEGORY,
+  questions.MEMO,
   questions.IS_REVIEW(isReview),
 ];
