@@ -13,6 +13,7 @@ import {
 } from "./questions/problem.js";
 import { getAbsolutePath } from "../utility.js";
 import { findOne, findAll, insert, remove } from "../db.js";
+import { generateReadme } from "./readme.js";
 
 const ALIAS_TO_PLATFORM = Object.fromEntries(
   Object.entries(PLATFORM_ALIAS).map(([platform, alias]) => [alias, platform]),
@@ -244,10 +245,11 @@ export const commitPrompt = async (config) => {
       .filter(Boolean)
       .map((f) => getAbsolutePath("..", "..", f));
     const dbPath = getAbsolutePath("data", "db.json");
+    const readmePath = await generateReadme(config);
     const commitMsg = `${config.username}: ${platformName}, ${group.problemId}`;
 
     try {
-      await Bun.$`git add ${files} ${dbPath}`;
+      await Bun.$`git add ${files} ${dbPath} ${readmePath}`;
       await Bun.$`git commit -m ${commitMsg}`;
       console.log(`커밋 완료: ${commitMsg}`);
     } catch (err) {

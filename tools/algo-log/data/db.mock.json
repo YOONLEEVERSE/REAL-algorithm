@@ -1,0 +1,109 @@
+{
+  "users": [
+    { "id": 1, "username": "ljh" },
+    { "id": 2, "username": "yjh" }
+  ],
+  "problems": [
+    {
+      "id": 1,
+      "platform": "baekjoon",
+      "number": "1920",
+      "difficulty": "silver-2",
+      "category": ["binary-search"]
+    },
+    {
+      "id": 2,
+      "platform": "programmers",
+      "number": "42626",
+      "difficulty": "lv2",
+      "category": ["heap"]
+    },
+    {
+      "id": 3,
+      "platform": "leetcode",
+      "number": "1",
+      "difficulty": "easy",
+      "category": ["hash"]
+    },
+    {
+      "id": 4,
+      "platform": "baekjoon",
+      "number": "11657",
+      "difficulty": "gold-4",
+      "category": ["graph"]
+    }
+  ],
+  "solvedProblems": [
+    {
+      "id": 1,
+      "userId": 1,
+      "problemId": 1,
+      "personalDifficulty": 2,
+      "memo": "이분탐색 기본",
+      "language": "java",
+      "isReview": false,
+      "solvedAt": "2026-04-01T10:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "problemId": 2,
+      "personalDifficulty": 3,
+      "memo": "",
+      "language": "java",
+      "isReview": false,
+      "solvedAt": "2026-04-03T11:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "problemId": 3,
+      "personalDifficulty": 1,
+      "memo": "투포인터로도 풀 수 있음",
+      "language": "java",
+      "isReview": false,
+      "solvedAt": "2026-04-10T09:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "problemId": 4,
+      "personalDifficulty": 4,
+      "memo": "벨만포드",
+      "language": "java",
+      "isReview": false,
+      "solvedAt": "2026-04-15T14:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "problemId": 1,
+      "personalDifficulty": 1,
+      "memo": "확실히 이제 쉽다",
+      "language": "python",
+      "isReview": true,
+      "solvedAt": "2026-05-01T10:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "userId": 1,
+      "problemId": 4,
+      "personalDifficulty": 3,
+      "memo": "다시 풀어보니 ok",
+      "language": "java",
+      "isReview": true,
+      "solvedAt": "2026-05-05T10:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "userId": 2,
+      "problemId": 1,
+      "personalDifficulty": 3,
+      "memo": "",
+      "language": "python",
+      "isReview": false,
+      "solvedAt": "2026-04-02T10:00:00.000Z"
+    }
+  ],
+  "meta": { "userIdSeq": 2 }
+}
