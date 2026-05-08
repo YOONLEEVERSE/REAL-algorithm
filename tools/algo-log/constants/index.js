@@ -2,3 +2,4 @@
 export * from "./platforms.js";
 export * from "./categories.js";
 export * from "./languages.js";
+export * from "./difficulty.js";

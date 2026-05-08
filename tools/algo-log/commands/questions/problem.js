@@ -5,6 +5,10 @@ import {
   CATEGORY_KR,
   LANGUAGE,
   LANGUAGE_KR,
+  DIFFICULTY_BAEKJOON_KR,
+  DIFFICULTY_PROGRAMMERS_KR,
+  DIFFICULTY_LEETCODE_KR,
+  PERSONAL_DIFFICULTY_KR,
 } from "../../constants/index.js";
 
 export const PLATFORM_CHOICES = Object.entries(PLATFORM_KR).map(
@@ -12,6 +16,23 @@ export const PLATFORM_CHOICES = Object.entries(PLATFORM_KR).map(
     title: value,
     value: key,
   }),
+);
+
+const DIFFICULTY_KR_BY_PLATFORM = {
+  [PLATFORM.BAEKJOON]: DIFFICULTY_BAEKJOON_KR,
+  [PLATFORM.PROGRAMMERS]: DIFFICULTY_PROGRAMMERS_KR,
+  [PLATFORM.LEETCODE]: DIFFICULTY_LEETCODE_KR,
+};
+
+export const DIFFICULTY_CHOICES_BY_PLATFORM = Object.fromEntries(
+  Object.entries(DIFFICULTY_KR_BY_PLATFORM).map(([platform, krMap]) => [
+    platform,
+    Object.entries(krMap).map(([key, value]) => ({ title: value, value: key })),
+  ]),
+);
+
+export const PERSONAL_DIFFICULTY_CHOICES = Object.entries(PERSONAL_DIFFICULTY_KR).map(
+  ([key, value]) => ({ title: value, value: Number(key) }),
 );
 
 export const CATEGORY_CHOICES = Object.entries(CATEGORY_KR).map(
@@ -91,6 +112,18 @@ export const questions = {
     active: "네",
     inactive: "아니오",
   }),
+  DIFFICULTY: (platform) => ({
+    type: "select",
+    name: "difficulty",
+    message: "문제 난이도를 선택해주세요",
+    choices: DIFFICULTY_CHOICES_BY_PLATFORM[platform] ?? [],
+  }),
+  PERSONAL_DIFFICULTY: {
+    type: "select",
+    name: "personalDifficulty",
+    message: "체감 난이도를 선택해주세요",
+    choices: PERSONAL_DIFFICULTY_CHOICES,
+  },
 };
 
 export const NEW_PROMPT_QUESTION = (config) => [
@@ -100,9 +133,9 @@ export const NEW_PROMPT_QUESTION = (config) => [
   questions.INPUTFILE(config.defaultGenerateInputfile ?? false),
 ];
 
-export const COMMIT_PROMPT_QUESTION = (config) => [
-  questions.PLATFORM(),
-  questions.NUMBER(),
-  questions.CATEGORY(),
+export const COMMIT_PROMPT_QUESTION = (platform) => [
+  questions.DIFFICULTY(platform),
+  questions.PERSONAL_DIFFICULTY,
+  questions.CATEGORY,
   questions.IS_REVIEW(),
 ];
