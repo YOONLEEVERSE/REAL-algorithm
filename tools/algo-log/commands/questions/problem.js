@@ -31,9 +31,9 @@ export const DIFFICULTY_CHOICES_BY_PLATFORM = Object.fromEntries(
   ]),
 );
 
-export const PERSONAL_DIFFICULTY_CHOICES = Object.entries(PERSONAL_DIFFICULTY_KR).map(
-  ([key, value]) => ({ title: value, value: Number(key) }),
-);
+export const PERSONAL_DIFFICULTY_CHOICES = Object.entries(
+  PERSONAL_DIFFICULTY_KR,
+).map(([key, value]) => ({ title: value, value: Number(key) }));
 
 export const CATEGORY_CHOICES = Object.entries(CATEGORY_KR).map(
   ([key, value]) => ({
@@ -133,9 +133,9 @@ export const NEW_PROMPT_QUESTION = (config) => [
   questions.INPUTFILE(config.defaultGenerateInputfile ?? false),
 ];
 
-export const COMMIT_PROMPT_QUESTION = (platform) => [
+export const COMMIT_PROMPT_QUESTION = (platform, isReview = false) => [
   questions.DIFFICULTY(platform),
   questions.PERSONAL_DIFFICULTY,
   questions.CATEGORY,
-  questions.IS_REVIEW(),
+  questions.IS_REVIEW(isReview),
 ];
