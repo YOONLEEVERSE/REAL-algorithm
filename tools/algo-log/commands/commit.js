@@ -13,7 +13,7 @@ import {
 } from "./questions/problem.js";
 import { getAbsolutePath } from "../utility.js";
 import { findOne, findAll, insert, remove } from "../db.js";
-import { generateReadme } from "./readme.js";
+import { generateReadme } from "../services/readme.js";
 
 const ALIAS_TO_PLATFORM = Object.fromEntries(
   Object.entries(PLATFORM_ALIAS).map(([platform, alias]) => [alias, platform]),
@@ -123,6 +123,16 @@ async function getNextId(collection) {
   return Math.max(...all.map((item) => item.id)) + 1;
 }
 
+class PromptCancelled extends Error {}
+
+function ask(questions) {
+  return prompts(questions, {
+    onCancel() {
+      throw new PromptCancelled();
+    },
+  });
+}
+
 export const commitPrompt = async (config) => {
   const gitStatus = await Bun.$`git status --porcelain`.text();
 
@@ -147,120 +157,121 @@ export const commitPrompt = async (config) => {
 
   const groups = groupFiles(changedFiles);
 
-  const { selected } = await prompts({
-    type: "multiselect",
-    name: "selected",
-    message: "커밋할 문제를 선택해주세요",
-    choices: groups.map((group) => ({
-      title: formatGroupTitle(group),
-      value: group,
-    })),
-    min: 1,
-  });
-
-  if (!selected || selected.length === 0) return;
-
-  for (const group of selected) {
-    const platformName = group.platform ? PLATFORM_KR[group.platform] : "기타";
-    const fileNames = [group.solutionFile?.name, group.inputFile?.name]
-      .filter(Boolean)
-      .join(", ");
-
-    const existingProblem = group.platform
-      ? await findOne(
-          "problems",
-          (p) => p.platform === group.platform && p.number === group.problemId,
-        )
-      : null;
-
-    const confirmMsg = existingProblem
-      ? `파싱 정보 확인: ${platformName} - ${group.problemId} (${fileNames}) / ${formatDifficultyAndCategory(existingProblem)}`
-      : `파싱 정보 확인: ${platformName} - ${group.problemId} (${fileNames})`;
-
-    const { confirmed } = await prompts({
-      type: "toggle",
-      name: "confirmed",
-      message: confirmMsg,
-      initial: true,
-      active: "맞아요",
-      inactive: "아니에요",
+  try {
+    const { selected } = await ask({
+      type: "multiselect",
+      name: "selected",
+      message: "커밋할 문제를 선택해주세요",
+      choices: groups.map((group) => ({
+        title: formatGroupTitle(group),
+        value: group,
+      })),
+      min: 1,
     });
 
-    if (confirmed === undefined) return;
-    if (!confirmed) {
-      console.log("파일 이름을 수정한 후 다시 시도해주세요.");
-      continue;
-    }
+    if (!selected || selected.length === 0) return;
 
-    let problemId;
-    let insertedProblemId = null;
-    let insertedSolvedId = null;
+    for (const group of selected) {
+      const platformName = group.platform ? PLATFORM_KR[group.platform] : "기타";
+      const fileNames = [group.solutionFile?.name, group.inputFile?.name]
+        .filter(Boolean)
+        .join(", ");
 
-    if (existingProblem) {
-      problemId = existingProblem.id;
-      const info = await prompts(SOLVED_PROMPT_QUESTION(group.isReview));
-      if (info.personalDifficulty === undefined) return;
+      const existingProblem = group.platform
+        ? await findOne(
+            "problems",
+            (p) => p.platform === group.platform && p.number === group.problemId,
+          )
+        : null;
 
-      insertedSolvedId = await getNextId("solvedProblems");
-      await insert("solvedProblems", {
-        id: insertedSolvedId,
-        userId: config.userId,
-        problemId,
-        personalDifficulty: info.personalDifficulty,
-        memo: info.memo ?? "",
-        language: group.language,
-        isReview: info.isReview,
-        solvedAt: new Date().toISOString(),
-      });
-    } else {
-      const info = await prompts(
-        NEW_PROBLEM_PROMPT_QUESTION(group.platform, group.isReview),
-      );
-      if (info.difficulty === undefined) return;
+      const confirmMsg = existingProblem
+        ? `파싱 정보 확인: ${platformName} - ${group.problemId} (${fileNames}) / ${formatDifficultyAndCategory(existingProblem)}`
+        : `파싱 정보 확인: ${platformName} - ${group.problemId} (${fileNames})`;
 
-      problemId = await getNextId("problems");
-      insertedProblemId = problemId;
-      await insert("problems", {
-        id: problemId,
-        platform: group.platform,
-        number: group.problemId,
-        difficulty: info.difficulty,
-        category: info.category ?? [],
+      const { confirmed } = await ask({
+        type: "toggle",
+        name: "confirmed",
+        message: confirmMsg,
+        initial: true,
+        active: "맞아요",
+        inactive: "아니에요",
       });
 
-      insertedSolvedId = await getNextId("solvedProblems");
-      await insert("solvedProblems", {
-        id: insertedSolvedId,
-        userId: config.userId,
-        problemId,
-        personalDifficulty: info.personalDifficulty,
-        memo: info.memo ?? "",
-        language: group.language,
-        isReview: info.isReview,
-        solvedAt: new Date().toISOString(),
-      });
-    }
-
-    const files = [group.solutionFile?.path, group.inputFile?.path]
-      .filter(Boolean)
-      .map((f) => getAbsolutePath("..", "..", f));
-    const dbPath = getAbsolutePath("data", "db.json");
-    const readmePath = await generateReadme(config);
-    const commitMsg = `${config.username}: ${platformName}, ${group.problemId}`;
-
-    try {
-      await Bun.$`git add ${files} ${dbPath} ${readmePath}`;
-      await Bun.$`git commit -m ${commitMsg}`;
-      console.log(`커밋 완료: ${commitMsg}`);
-    } catch (err) {
-      console.error("커밋 실패, DB 롤백 중...");
-      if (insertedSolvedId !== null) {
-        await remove("solvedProblems", (sp) => sp.id === insertedSolvedId);
+      if (!confirmed) {
+        console.log("파일 이름을 수정한 후 다시 시도해주세요.");
+        continue;
       }
-      if (insertedProblemId !== null) {
-        await remove("problems", (p) => p.id === insertedProblemId);
+
+      let problemId;
+      let insertedProblemId = null;
+      let insertedSolvedId = null;
+
+      if (existingProblem) {
+        problemId = existingProblem.id;
+        const info = await ask(SOLVED_PROMPT_QUESTION(group.isReview));
+
+        insertedSolvedId = await getNextId("solvedProblems");
+        await insert("solvedProblems", {
+          id: insertedSolvedId,
+          userId: config.userId,
+          problemId,
+          personalDifficulty: info.personalDifficulty,
+          memo: info.memo ?? "",
+          language: group.language,
+          isReview: info.isReview,
+          solvedAt: new Date().toISOString(),
+        });
+      } else {
+        const info = await ask(
+          NEW_PROBLEM_PROMPT_QUESTION(group.platform, group.isReview),
+        );
+
+        problemId = await getNextId("problems");
+        insertedProblemId = problemId;
+        await insert("problems", {
+          id: problemId,
+          platform: group.platform,
+          number: group.problemId,
+          difficulty: info.difficulty,
+          category: info.category ?? [],
+        });
+
+        insertedSolvedId = await getNextId("solvedProblems");
+        await insert("solvedProblems", {
+          id: insertedSolvedId,
+          userId: config.userId,
+          problemId,
+          personalDifficulty: info.personalDifficulty,
+          memo: info.memo ?? "",
+          language: group.language,
+          isReview: info.isReview,
+          solvedAt: new Date().toISOString(),
+        });
       }
-      console.error(err.message ?? err);
+
+      const files = [group.solutionFile?.path, group.inputFile?.path]
+        .filter(Boolean)
+        .map((f) => getAbsolutePath("..", "..", f));
+      const dbPath = getAbsolutePath("data", "db.json");
+      const readmePath = await generateReadme(config);
+      const commitMsg = `${config.username}: ${platformName}, ${group.problemId}`;
+
+      try {
+        await Bun.$`git add ${files} ${dbPath} ${readmePath}`;
+        await Bun.$`git commit -m ${commitMsg}`;
+        console.log(`커밋 완료: ${commitMsg}`);
+      } catch (err) {
+        console.error("커밋 실패, DB 롤백 중...");
+        if (insertedSolvedId !== null) {
+          await remove("solvedProblems", (sp) => sp.id === insertedSolvedId);
+        }
+        if (insertedProblemId !== null) {
+          await remove("problems", (p) => p.id === insertedProblemId);
+        }
+        console.error(err.message ?? err);
+      }
     }
+  } catch (e) {
+    if (!(e instanceof PromptCancelled)) throw e;
   }
 };
