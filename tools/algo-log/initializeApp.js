@@ -10,7 +10,7 @@ import {
   askUsername as _askUsername,
   askConfigFields as _askConfigFields,
   askUseExistingUser as _askUseExistingUser,
-} from "./commands/setup.js";
+} from "./services/setup.js";
 
 const CONFIG_PATH = getAbsolutePath("config.json");
 const DB_PATH = getAbsolutePath("data", "db.json");

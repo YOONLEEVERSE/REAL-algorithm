@@ -1,5 +1,5 @@
 import prompts from "prompts";
-import { setupQuestions, SETUP_PROMPT_QUESTION } from "./questions/setup.js";
+import { setupQuestions, SETUP_PROMPT_QUESTION } from "../commands/questions/setup.js";
 
 export const askUsername = () => prompts(setupQuestions.USERNAME);
 
