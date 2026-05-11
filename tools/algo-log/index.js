@@ -2,7 +2,7 @@
 
 import path from "path";
 import chalk from "chalk";
-import { newPrompt } from "./commands/new.js";
+import { newPrompt } from "./commands/new/index.js";
 import { commitPrompt } from "./commands/commit/index.js";
 import { initializeApp } from "./initializeApp.js";
 

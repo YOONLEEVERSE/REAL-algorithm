@@ -1,10 +1,10 @@
 import prompts from "prompts";
 import fs from "fs/promises";
-import { getAbsolutePath, getFormattedTime } from "../utility.js";
-import { NEW_PROMPT_QUESTION } from "./questions/problem.js";
-import { findOne, findAll } from "../db.js";
-import { LANGUAGE_LINE_COMMENT } from "../constants/languages.js";
-import { PLATFORM_ALIAS } from "../constants/platforms.js";
+import { getAbsolutePath, getFormattedTime } from "../../utility.js";
+import { NEW_PROMPT_QUESTION } from "../questions/problem.js";
+import { findOne, findAll } from "../../db.js";
+import { LANGUAGE_LINE_COMMENT } from "../../constants/languages.js";
+import { PLATFORM_ALIAS } from "../../constants/platforms.js";
 
 export const newPrompt = async (config) => {
   const responses = await prompts(NEW_PROMPT_QUESTION(config));
