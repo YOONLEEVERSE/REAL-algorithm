@@ -3,7 +3,7 @@
 import path from "path";
 import chalk from "chalk";
 import { newPrompt } from "./commands/new.js";
-import { commitPrompt } from "./commands/commit.js";
+import { commitPrompt } from "./commands/commit/index.js";
 import { initializeApp } from "./initializeApp.js";
 
 async function main() {
