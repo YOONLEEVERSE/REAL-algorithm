@@ -4,29 +4,34 @@
 
 문제 파일 생성 → 풀이 → 커밋까지, 플랫폼 API로 제목·난이도·유형을 자동 조회해 기록합니다.
 
+## 경로 제약
+
+이 도구는 **반드시 `tools/algo-log/` 디렉토리에서 실행**해야 합니다.
+
+`data/db.json`, `config.json`, 풀이 파일 경로(`../../{baseDir}/`) 모두 실행 파일 위치 기준 상대 경로로 계산되기 때문에, 바이너리를 다른 위치로 옮기면 동작하지 않습니다.
+
+전역 등록이 필요하다면 **심볼릭 링크**를 사용하세요:
+```bash
+# macOS / Linux — 바이너리 위치 유지, 심볼릭 링크로 전역 등록
+ln -s "$(pwd)/algo" /usr/local/bin/algo
+```
+
 ## 설치
 
-빌드된 실행 파일(`algo`, `algo.exe`)이 포함되어 있습니다.
-
-**macOS / Linux**
 ```bash
+# 빌드
+npm run build        # macOS/Linux
+npm run build:win    # Windows (.exe)
+npm run build:all    # 둘 다
+
+# 실행 권한 부여 (macOS/Linux)
 chmod +x ./algo
 ./algo --help
-
-# 전역 등록 (선택)
-npm link
 ```
 
 **Windows**
 ```
 algo.exe --help
-```
-
-빌드가 필요한 경우:
-```bash
-npm run build        # macOS/Linux
-npm run build:win    # Windows (.exe)
-npm run build:all    # 둘 다
 ```
 
 ## 명령어
