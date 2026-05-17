@@ -1,4 +1,4 @@
-import fs from "fs/promises";
+import fs from "node:fs/promises";
 import {
   PLATFORM_KR,
   CATEGORY_KR,
@@ -44,21 +44,22 @@ export function buildReadmeContent(problems, solvedProblems) {
       const categories =
         (problem.category ?? []).map((c) => CATEGORY_KR[c] ?? c).join(", ") ||
         "기타";
+      const name = problem.name ?? "-";
       const lang = sp.language ?? "-";
       const pd = PERSONAL_DIFFICULTY_KR[sp.personalDifficulty] ?? "-";
       const date = sp.solvedAt ? sp.solvedAt.slice(0, 10) : "-";
       const review = sp.isReview ? "✓" : "";
       const memo = sp.memo || "-";
 
-      return `| ${platformName} | ${problem.number} | ${diffLabel} | ${categories} | ${lang} | ${pd} | ${date} | ${review} | ${memo} |`;
+      return `| ${platformName} | ${problem.number} | ${name} | ${diffLabel} | ${categories} | ${lang} | ${pd} | ${date} | ${review} | ${memo} |`;
     })
     .filter(Boolean);
 
   const lines = [
     "# 알고리즘 풀이 기록",
     "",
-    "| 플랫폼 | 번호 | 난이도 | 유형 | 언어 | 체감 난이도 | 날짜 | 복습 | 비고 |",
-    "| :----: | :--: | :----: | :--: | :--: | :---------: | :--: | :--: | :--: |",
+    "| 플랫폼 | 번호 | 제목 | 난이도 | 유형 | 언어 | 체감 난이도 | 날짜 | 복습 | 비고 |",
+    "| :----: | :--: | :--: | :----: | :--: | :--: | :---------: | :--: | :--: | :--: |",
     ...rows,
   ];
 
