@@ -1,6 +1,11 @@
-import path from "path";
+import path from "node:path";
 
-export const __dirname = path.dirname(new URL(import.meta.url).pathname);
+// bun run (dev)에서는 process.execPath가 bun 런타임을 가리키므로 import.meta.url 사용
+// 컴파일 바이너리에서는 import.meta.url이 /$bunfs/ 가상 경로이므로 process.execPath 사용
+const isCompiled = import.meta.url.startsWith("/$bunfs/");
+export const __dirname = isCompiled
+  ? path.dirname(process.execPath)
+  : path.dirname(new URL(import.meta.url).pathname);
 
 export const getAbsolutePath = (...args) => {
   return path.resolve(__dirname, ...args);
