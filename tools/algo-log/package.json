@@ -12,6 +12,8 @@
     "dev": "bun run index.js",
     "watch": "bun --watch index.js",
     "build": "bun build ./index.js --compile --outfile ./algo",
+    "build:win": "bun build ./index.js --compile --target bun-windows-x64 --outfile ./algo.exe",
+    "build:all": "bun run build && bun run build:win",
     "test": "bun test",
     "readme": "bun run scripts/generate-readme.js"
   },
