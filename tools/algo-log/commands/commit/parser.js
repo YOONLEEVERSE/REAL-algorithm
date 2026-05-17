@@ -1,4 +1,4 @@
-import path from "path";
+import path from "node:path";
 import { PLATFORM_ALIAS, PLATFORM_KR } from "../../constants/platforms.js";
 import {
   CATEGORY_KR,
@@ -56,8 +56,15 @@ export function groupFiles(changedFiles) {
 
   for (const { file } of changedFiles) {
     const dir = path.dirname(file);
-    const { baseName, isInput, language, platform, problemId, isReview, pairKey } =
-      parseFileName(file);
+    const {
+      baseName,
+      isInput,
+      language,
+      platform,
+      problemId,
+      isReview,
+      pairKey,
+    } = parseFileName(file);
     const key = `${dir}/${pairKey}`;
 
     if (!groups.has(key)) {

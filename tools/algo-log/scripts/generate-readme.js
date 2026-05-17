@@ -1,4 +1,4 @@
-import { readFile, writeFile } from "fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { buildReadmeContent } from "../services/readme.js";
 import { getAbsolutePath } from "../utility.js";
 

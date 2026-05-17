@@ -1,5 +1,5 @@
 import prompts from "prompts";
-import fs from "fs/promises";
+import fs from "node:fs/promises";
 import { getAbsolutePath, getFormattedTime } from "../../utility.js";
 import { NEW_PROMPT_QUESTION } from "../questions/problem.js";
 import { findOne, findAll } from "../../db.js";
