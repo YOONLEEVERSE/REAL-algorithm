@@ -7,6 +7,7 @@ import {
 import { getAbsolutePath } from "../../utility.js";
 import { findOne, findAll, insert, remove } from "../../db.js";
 import { generateReadme } from "../../services/readme.js";
+import { fetchProblemInfo } from "../../services/problem-fetcher.js";
 import {
   groupFiles,
   formatGroupTitle,
@@ -67,22 +68,35 @@ export const commitPrompt = async (config) => {
 
     if (!selected || selected.length === 0) return;
 
+    const fetchMap = new Map(
+      selected.map((group) => [
+        group,
+        group.platform
+          ? fetchProblemInfo(group.platform, group.problemId)
+          : Promise.resolve(null),
+      ]),
+    );
+
     for (const group of selected) {
       const platformName = group.platform ? PLATFORM_KR[group.platform] : "기타";
       const fileNames = [group.solutionFile?.name, group.inputFile?.name]
         .filter(Boolean)
         .join(", ");
 
-      const existingProblem = group.platform
-        ? await findOne(
-            "problems",
-            (p) => p.platform === group.platform && p.number === group.problemId,
-          )
-        : null;
+      const [existingProblem, fetchedInfo] = await Promise.all([
+        group.platform
+          ? findOne(
+              "problems",
+              (p) => p.platform === group.platform && p.number === group.problemId,
+            )
+          : null,
+        fetchMap.get(group),
+      ]);
 
+      const namePart = fetchedInfo?.name ? ` / ${fetchedInfo.name}` : "";
       const confirmMsg = existingProblem
         ? `파싱 정보 확인: ${platformName} - ${group.problemId} (${fileNames}) / ${formatDifficultyAndCategory(existingProblem)}`
-        : `파싱 정보 확인: ${platformName} - ${group.problemId} (${fileNames})`;
+        : `파싱 정보 확인: ${platformName} - ${group.problemId} (${fileNames})${namePart}`;
 
       const { confirmed } = await ask({
         type: "toggle",
@@ -119,7 +133,7 @@ export const commitPrompt = async (config) => {
         });
       } else {
         const info = await ask(
-          NEW_PROBLEM_PROMPT_QUESTION(group.platform, group.isReview),
+          NEW_PROBLEM_PROMPT_QUESTION(group.platform, group.isReview, fetchedInfo),
         );
 
         problemId = await getNextId("problems");
@@ -128,6 +142,7 @@ export const commitPrompt = async (config) => {
           id: problemId,
           platform: group.platform,
           number: group.problemId,
+          name: fetchedInfo?.name ?? null,
           difficulty: info.difficulty,
           category: info.category ?? [],
         });

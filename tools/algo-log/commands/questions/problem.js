@@ -1,9 +1,7 @@
 import {
   PLATFORM,
   PLATFORM_KR,
-  CATEGORY,
   CATEGORY_KR,
-  LANGUAGE,
   LANGUAGE_KR,
   DIFFICULTY_BAEKJOON_KR,
   DIFFICULTY_PROGRAMMERS_KR,
@@ -77,15 +75,18 @@ export const questions = {
     message: "문제의 이름을 입력해주세요",
     initial: initialValue,
   }),
-  CATEGORY: {
+  CATEGORY: (initialValues = []) => ({
     type: "autocompleteMultiselect",
     name: "category",
     message: "알고리즘 유형을 선택해주세요(선택)",
-    choices: CATEGORY_CHOICES,
+    choices: CATEGORY_CHOICES.map((c) => ({
+      ...c,
+      selected: initialValues.includes(c.value),
+    })),
     instructions:
       "\n [방향키↑↓]: 방향키 이동 | [Space]: 선택/해제 | [Enter]: 완료 | [Type]: 검색",
     hint: "미입력시 '기타'로 분류됩니다.",
-  },
+  }),
   LANGUAGE: (initialValue) => ({
     type: "select",
     name: "language",
@@ -117,11 +118,19 @@ export const questions = {
     name: "memo",
     message: "비고를 입력해주세요 (선택)",
   },
-  DIFFICULTY: (platform) => ({
+  DIFFICULTY: (platform, initialValue) => ({
     type: "select",
     name: "difficulty",
     message: "문제 난이도를 선택해주세요",
     choices: DIFFICULTY_CHOICES_BY_PLATFORM[platform] ?? [],
+    initial: initialValue
+      ? Math.max(
+          0,
+          (DIFFICULTY_CHOICES_BY_PLATFORM[platform] ?? []).findIndex(
+            (c) => c.value === initialValue,
+          ),
+        )
+      : 0,
   }),
   PERSONAL_DIFFICULTY: {
     type: "select",
@@ -141,7 +150,7 @@ export const NEW_PROMPT_QUESTION = (config) => [
 export const COMMIT_PROMPT_QUESTION = (platform, isReview = false) => [
   questions.DIFFICULTY(platform),
   questions.PERSONAL_DIFFICULTY,
-  questions.CATEGORY,
+  questions.CATEGORY(),
   questions.IS_REVIEW(isReview),
 ];
 
@@ -151,10 +160,10 @@ export const SOLVED_PROMPT_QUESTION = (isReview = false) => [
   questions.IS_REVIEW(isReview),
 ];
 
-export const NEW_PROBLEM_PROMPT_QUESTION = (platform, isReview = false) => [
-  questions.DIFFICULTY(platform),
+export const NEW_PROBLEM_PROMPT_QUESTION = (platform, isReview = false, fetchedInfo = null) => [
+  questions.DIFFICULTY(platform, fetchedInfo?.difficulty),
   questions.PERSONAL_DIFFICULTY,
-  questions.CATEGORY,
+  questions.CATEGORY(fetchedInfo?.category ?? []),
   questions.MEMO,
   questions.IS_REVIEW(isReview),
 ];
