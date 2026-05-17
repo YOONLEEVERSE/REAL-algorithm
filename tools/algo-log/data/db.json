@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "ljh"
+    }
+  ],
+  "problems": [
+    {
+      "id": 1,
+      "platform": "programmers",
+      "number": "72413",
+      "difficulty": "lv3",
+      "category": []
+    }
+  ],
+  "solvedProblems": [
+    {
+      "id": 1,
+      "userId": 1,
+      "problemId": 1,
+      "personalDifficulty": 3,
+      "memo": "플로이드워셜",
+      "language": "js",
+      "isReview": false,
+      "solvedAt": "2026-05-17T05:38:54.545Z"
+    }
+  ],
+  "meta": {
+    "userIdSeq": 1
+  }
+}
