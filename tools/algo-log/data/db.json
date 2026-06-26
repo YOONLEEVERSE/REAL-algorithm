@@ -12,6 +12,14 @@
       "number": "72413",
       "difficulty": "lv3",
       "category": []
+    },
+    {
+      "id": 2,
+      "platform": "programmers",
+      "number": "132266",
+      "name": "부대복귀",
+      "difficulty": "lv3",
+      "category": []
     }
   ],
   "solvedProblems": [
@@ -24,6 +32,16 @@
       "language": "js",
       "isReview": false,
       "solvedAt": "2026-05-17T05:38:54.545Z"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "problemId": 2,
+      "personalDifficulty": 1,
+      "memo": "가중치가 1로 같으므로, 다익스트라까지 갈 것 없고 dfs로 충분~",
+      "language": "js",
+      "isReview": false,
+      "solvedAt": "2026-06-26T10:11:57.759Z"
     }
   ],
   "meta": {
