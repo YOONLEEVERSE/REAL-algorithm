@@ -20,6 +20,16 @@
       "name": "부대복귀",
       "difficulty": "lv3",
       "category": []
+    },
+    {
+      "id": 3,
+      "platform": "programmers",
+      "number": "49191",
+      "name": "순위",
+      "difficulty": "lv3",
+      "category": [
+        "brute-force"
+      ]
     }
   ],
   "solvedProblems": [
@@ -42,6 +52,16 @@
       "language": "js",
       "isReview": false,
       "solvedAt": "2026-06-26T10:11:57.759Z"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "problemId": 3,
+      "personalDifficulty": 4,
+      "memo": "아이디어가 잘 안떠올랐음. 최종적으로 채택한건 내 앞에 몇명있고, 뒤에 몇 명 있는지 확실히 알면 순위 결정가능.",
+      "language": "js",
+      "isReview": false,
+      "solvedAt": "2026-06-28T03:17:31.902Z"
     }
   ],
   "meta": {
