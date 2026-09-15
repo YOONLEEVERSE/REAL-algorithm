@@ -1,10 +1,18 @@
 import path from "node:path";
 
-// bun run (dev)에서는 process.execPath가 bun 런타임을 가리키므로 import.meta.url 사용
-// 컴파일 바이너리에서는 import.meta.url이 /$bunfs/ 가상 경로이므로 process.execPath 사용
-const isCompiled = import.meta.url.startsWith("/$bunfs/");
+const isCompiled = import.meta.url.includes("$bunfs");
+
+function getCompiledDir() {
+  // 일부 Bun 버전에서 process.execPath가 /$bunfs/ 가상 경로를 반환하는 경우가 있음
+  // 이 경우 실제 바이너리 경로인 process.argv[0] 을 사용
+  if (!process.execPath.startsWith("/$bunfs/")) {
+    return path.dirname(process.execPath);
+  }
+  return path.dirname(path.resolve(process.argv[0]));
+}
+
 export const __dirname = isCompiled
-  ? path.dirname(process.execPath)
+  ? getCompiledDir()
   : path.dirname(new URL(import.meta.url).pathname);
 
 export const getAbsolutePath = (...args) => {
