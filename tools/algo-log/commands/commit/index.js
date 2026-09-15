@@ -1,3 +1,5 @@
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import prompts from "prompts";
 import { PLATFORM_KR } from "../../constants/platforms.js";
 import {
@@ -16,6 +18,12 @@ import {
 
 class PromptCancelled extends Error {}
 
+const execFileAsync = promisify(execFile);
+
+function git(args) {
+  return execFileAsync("git", args, { encoding: "utf8" });
+}
+
 function ask(questions) {
   return prompts(questions, {
     onCancel() {
@@ -31,7 +39,11 @@ async function getNextId(collection) {
 }
 
 export const commitPrompt = async (config) => {
-  const gitStatus = await Bun.$`git status --porcelain`.text();
+  const { stdout: gitStatus } = await git([
+    "status",
+    "--porcelain",
+    "--untracked-files=all",
+  ]);
 
   const changedFiles = gitStatus
     .trim()
@@ -168,8 +180,8 @@ export const commitPrompt = async (config) => {
       const commitMsg = `${config.username}: ${platformName}, ${group.problemId}`;
 
       try {
-        await Bun.$`git add ${files} ${dbPath} ${readmePath}`;
-        await Bun.$`git commit -m ${commitMsg}`;
+        await git(["add", ...files, dbPath, readmePath]);
+        await git(["commit", "-m", commitMsg]);
         console.log(`커밋 완료: ${commitMsg}`);
       } catch (err) {
         console.error("커밋 실패, DB 롤백 중...");
