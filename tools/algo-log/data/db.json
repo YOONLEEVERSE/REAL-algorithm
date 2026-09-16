@@ -30,6 +30,14 @@
       "category": [
         "brute-force"
       ]
+    },
+    {
+      "id": 4,
+      "platform": "programmers",
+      "number": "76502",
+      "name": "괄호 회전하기",
+      "difficulty": "lv2",
+      "category": []
     }
   ],
   "solvedProblems": [
@@ -62,6 +70,16 @@
       "language": "js",
       "isReview": false,
       "solvedAt": "2026-06-28T03:17:31.902Z"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "problemId": 4,
+      "personalDifficulty": 2,
+      "memo": "",
+      "language": "js",
+      "isReview": false,
+      "solvedAt": "2026-09-16T12:51:10.139Z"
     }
   ],
   "meta": {
