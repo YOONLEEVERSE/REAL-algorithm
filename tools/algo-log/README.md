@@ -8,6 +8,8 @@
 
 실행 파일 `algo`와 `config.json`, `data/`는 `tools/algo-log/`에 함께 둡니다. 실행 파일을 다른 위치로 옮기지 마세요.
 
+macOS에서는 프로젝트 루트의 `install.command`를 Finder에서 한 번만 더블클릭하세요. 이후 새 터미널에서는 `./`나 `source` 없이 `algo` 명령어를 바로 쓸 수 있습니다.
+
 macOS에서는 프로젝트 루트의 `start.command`를 Finder에서 더블클릭하면 프로젝트 전용 터미널이 열립니다. 이 터미널에서만 `algo` 명령어를 쓸 수 있으므로, `ljh` 폴더로 이동한 뒤에도 바로 실행할 수 있습니다.
 
 프로젝트 루트에서는 `algo` 링크를 통해 바로 실행할 수 있습니다.
@@ -22,10 +24,10 @@ cd ljh
 algo commit
 ```
 
-이미 열린 zsh 터미널을 쓰고 싶다면 프로젝트 루트에서 한 번만 아래를 실행하세요.
+설치 직후 현재 터미널에서도 바로 쓰고 싶다면 새 터미널을 열거나 아래를 한 번 실행하세요.
 
 ```bash
-source tools/algo-log/activate.zsh
+source ~/.zshrc
 ```
 
 ## 설치

@@ -1,0 +1,1 @@
+tools/algo-log/install.command
