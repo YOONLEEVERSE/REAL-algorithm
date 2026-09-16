@@ -8,7 +8,14 @@
 
 실행 파일 `algo`와 `config.json`, `data/`는 `tools/algo-log/`에 함께 둡니다. 실행 파일을 다른 위치로 옮기지 마세요.
 
-macOS에서는 Finder에서 `tools/algo-log/start.command`를 더블클릭하면 프로젝트 전용 터미널이 열립니다. 이 터미널에서만 `algo` 명령어를 쓸 수 있으므로, `ljh` 폴더로 이동한 뒤에도 바로 실행할 수 있습니다.
+macOS에서는 프로젝트 루트의 `start.command`를 Finder에서 더블클릭하면 프로젝트 전용 터미널이 열립니다. 이 터미널에서만 `algo` 명령어를 쓸 수 있으므로, `ljh` 폴더로 이동한 뒤에도 바로 실행할 수 있습니다.
+
+프로젝트 루트에서는 `algo` 링크를 통해 바로 실행할 수 있습니다.
+
+```bash
+./algo new
+./algo commit
+```
 
 ```bash
 cd ljh
