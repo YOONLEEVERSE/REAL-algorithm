@@ -38,6 +38,17 @@
       "name": "괄호 회전하기",
       "difficulty": "lv2",
       "category": []
+    },
+    {
+      "id": 5,
+      "platform": "programmers",
+      "number": "87946",
+      "name": "피로도",
+      "difficulty": "lv2",
+      "category": [
+        "stack-queue",
+        "dfs-bfs"
+      ]
     }
   ],
   "solvedProblems": [
@@ -80,6 +91,16 @@
       "language": "js",
       "isReview": false,
       "solvedAt": "2026-09-16T12:51:10.139Z"
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "problemId": 5,
+      "personalDifficulty": 3,
+      "memo": "",
+      "language": "js",
+      "isReview": false,
+      "solvedAt": "2026-09-17T09:10:40.364Z"
     }
   ],
   "meta": {
