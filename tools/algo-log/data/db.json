@@ -49,6 +49,17 @@
         "stack-queue",
         "dfs-bfs"
       ]
+    },
+    {
+      "id": 6,
+      "platform": "programmers",
+      "number": "43162",
+      "name": "네트워크",
+      "difficulty": "lv3",
+      "category": [
+        "stack-queue",
+        "dfs-bfs"
+      ]
     }
   ],
   "solvedProblems": [
@@ -101,6 +112,16 @@
       "language": "js",
       "isReview": false,
       "solvedAt": "2026-09-17T09:10:40.364Z"
+    },
+    {
+      "id": 6,
+      "userId": 1,
+      "problemId": 6,
+      "personalDifficulty": 3,
+      "memo": "",
+      "language": "js",
+      "isReview": false,
+      "solvedAt": "2026-09-17T09:34:51.708Z"
     }
   ],
   "meta": {
