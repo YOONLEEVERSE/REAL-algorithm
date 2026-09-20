@@ -60,6 +60,17 @@
         "stack-queue",
         "dfs-bfs"
       ]
+    },
+    {
+      "id": 7,
+      "platform": "programmers",
+      "number": "426278",
+      "name": null,
+      "difficulty": "lv3",
+      "category": [
+        "stack-queue",
+        "heap"
+      ]
     }
   ],
   "solvedProblems": [
@@ -122,6 +133,16 @@
       "language": "js",
       "isReview": false,
       "solvedAt": "2026-09-17T09:34:51.708Z"
+    },
+    {
+      "id": 7,
+      "userId": 1,
+      "problemId": 7,
+      "personalDifficulty": 4,
+      "memo": "",
+      "language": "js",
+      "isReview": false,
+      "solvedAt": "2026-09-20T07:21:02.449Z"
     }
   ],
   "meta": {
