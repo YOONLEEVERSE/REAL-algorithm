@@ -71,6 +71,16 @@
         "stack-queue",
         "heap"
       ]
+    },
+    {
+      "id": 8,
+      "platform": "programmers",
+      "number": "42898",
+      "name": "등굣길",
+      "difficulty": "lv3",
+      "category": [
+        "dynamic-programming"
+      ]
     }
   ],
   "solvedProblems": [
@@ -143,6 +153,16 @@
       "language": "js",
       "isReview": false,
       "solvedAt": "2026-09-20T07:21:02.449Z"
+    },
+    {
+      "id": 8,
+      "userId": 1,
+      "problemId": 8,
+      "personalDifficulty": 3,
+      "memo": "",
+      "language": "js",
+      "isReview": false,
+      "solvedAt": "2026-09-22T14:20:49.216Z"
     }
   ],
   "meta": {
