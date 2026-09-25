@@ -81,6 +81,16 @@
       "category": [
         "dynamic-programming"
       ]
+    },
+    {
+      "id": 9,
+      "platform": "programmers",
+      "number": "131704",
+      "name": "택배상자",
+      "difficulty": "lv2",
+      "category": [
+        "stack-queue"
+      ]
     }
   ],
   "solvedProblems": [
@@ -163,6 +173,16 @@
       "language": "js",
       "isReview": false,
       "solvedAt": "2026-09-22T14:20:49.216Z"
+    },
+    {
+      "id": 9,
+      "userId": 1,
+      "problemId": 9,
+      "personalDifficulty": 1,
+      "memo": "매우 쉬움",
+      "language": "js",
+      "isReview": false,
+      "solvedAt": "2026-09-25T14:28:22.321Z"
     }
   ],
   "meta": {
