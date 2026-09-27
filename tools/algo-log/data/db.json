@@ -91,6 +91,16 @@
       "category": [
         "stack-queue"
       ]
+    },
+    {
+      "id": 10,
+      "platform": "programmers",
+      "number": "42884",
+      "name": "단속카메라",
+      "difficulty": "lv3",
+      "category": [
+        "greedy"
+      ]
     }
   ],
   "solvedProblems": [
@@ -183,6 +193,16 @@
       "language": "js",
       "isReview": false,
       "solvedAt": "2026-09-25T14:28:22.321Z"
+    },
+    {
+      "id": 10,
+      "userId": 1,
+      "problemId": 10,
+      "personalDifficulty": 4,
+      "memo": "탐욕법으로 풀 문제인지 판별하는게 어려움;",
+      "language": "js",
+      "isReview": false,
+      "solvedAt": "2026-09-27T14:01:48.064Z"
     }
   ],
   "meta": {
