@@ -101,6 +101,16 @@
       "category": [
         "greedy"
       ]
+    },
+    {
+      "id": 11,
+      "platform": "programmers",
+      "number": "138476",
+      "name": "귤 고르기",
+      "difficulty": "lv2",
+      "category": [
+        "sort"
+      ]
     }
   ],
   "solvedProblems": [
@@ -203,6 +213,16 @@
       "language": "js",
       "isReview": false,
       "solvedAt": "2026-09-27T14:01:48.064Z"
+    },
+    {
+      "id": 11,
+      "userId": 1,
+      "problemId": 11,
+      "personalDifficulty": 1,
+      "memo": "흠. 쉬움",
+      "language": "js",
+      "isReview": false,
+      "solvedAt": "2026-09-28T14:42:14.491Z"
     }
   ],
   "meta": {
