@@ -223,6 +223,16 @@
       "language": "js",
       "isReview": false,
       "solvedAt": "2026-09-28T14:42:14.491Z"
+    },
+    {
+      "id": 12,
+      "userId": 1,
+      "problemId": 11,
+      "personalDifficulty": 1,
+      "memo": "리팩토링",
+      "language": "js",
+      "isReview": true,
+      "solvedAt": "2026-09-28T14:48:02.364Z"
     }
   ],
   "meta": {
